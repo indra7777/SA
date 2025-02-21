@@ -1,0 +1,5 @@
+text,label
+"I love this product!",positive
+"This is the worst experience I've ever had.",negative
+"The service was okay, nothing special.",neutral
+...
