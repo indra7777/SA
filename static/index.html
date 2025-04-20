@@ -3,16 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipkart Product Sentiment Analysis</title>
+    <title>Sentiment Flow - Product Review Analyzer</title>
     <link rel="stylesheet" href="static/stlyes.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Flipkart Product Sentiment Analysis</h1>
-        <input type="text" id="product-url" placeholder="Enter Flipkart product URL">
-        <button id="analyze-button">Analyze</button>
-        <div id="result"></div>
-    </div>
+    <div class="flow-bg"></div>
+    <main class="flow-container">
+        <header class="flow-header">
+            <h1><span class="brand-gradient">Sentiment Flow</span></h1>
+            <p class="subtitle">Effortless, beautiful product sentiment analysis for Flipkart, Dell, Nykaa, Nike, Myntra</p>
+        </header>
+        <section class="flow-form-section">
+            <form id="analyze-form">
+                <label for="product-url" class="flow-label">Paste your product URL</label>
+                <input type="text" id="product-url" class="flow-input" placeholder="Paste product URL from Flipkart, Dell, Nykaa, Nike, Myntra..." autocomplete="off">
+                <div class="platform-select" id="platform-select">
+                    <button type="button" data-platform="flipkart">Flipkart</button>
+                    <button type="button" data-platform="dell">Dell</button>
+                    <button type="button" data-platform="nykaa">Nykaa</button>
+                    <button type="button" data-platform="nike">Nike</button>
+                    <button type="button" data-platform="myntra">Myntra</button>
+                </div>
+                <button type="submit" class="analyze-btn">Analyze</button>
+            </form>
+        </section>
+        <section id="loading-section" class="flow-loading" style="display:none;">
+            <div class="loader"></div>
+            <p>Analyzing reviews and product details...</p>
+        </section>
+        <section id="result-section" class="flow-result" style="display:none;">
+            <div class="result-card">
+                <div class="product-meta">
+                    <img id="product-image" class="product-image" src="" alt="Product Image" style="display:none;"/>
+                    <div>
+                        <h2 id="product-title"></h2>
+                        <p id="product-desc"></p>
+                    </div>
+                </div>
+                <canvas id="sentiment-chart" width="300" height="300"></canvas>
+                <div class="sentiment-stats">
+                    <div class="sentiment-pill positive">😊 <span id="positive-pct"></span></div>
+                    <div class="sentiment-pill neutral">😐 <span id="neutral-pct"></span></div>
+                    <div class="sentiment-pill negative">😞 <span id="negative-pct"></span></div>
+                </div>
+                <button id="analyze-another" class="analyze-btn alt">Analyze Another</button>
+            </div>
+        </section>
+        <footer class="flow-footer">
+            <p>Made with ❤️ for seamless sentiment analysis. <span class="brand-gradient">Sentiment Flow</span></p>
+        </footer>
+    </main>
     <script src="static/index.js"></script>
 </body>
 </html>
